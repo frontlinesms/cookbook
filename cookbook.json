@@ -1,9 +1,8 @@
 {
-	"description" : {
-		"name" : "SPRINT79's recipes",
-		"version" : "v1",
-		"author" : "DeveloperF"
-	},
+	"name" : "SPRINT79's recipes",
+	"version" : "v1",
+	"author" : "DeveloperF",
+	"description" : "This is a prose description of the cookbook contents",
 	"recipes": [
 		{
 			"name" : "My first recipe with all the options in",
