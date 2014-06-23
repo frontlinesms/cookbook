@@ -1,88 +1,82 @@
-"cookbook" : 	{
-		"description" : {
-			"name" : "SPRINT79's recipes",
-			"version" : "v1",
-			"author" : "DeveloperF"
-		},
-		"recipe" : {
-			"name" : "My first recipe with all the options in",
-			"description" : "This is my first recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
-			"triggers" : [
-				{
-					"triggerType" : "MISSED_CALL"
-				},
-				{
-					"triggerType" : "TEXT_MESSAGE"
+{
+	"description" : {
+		"name" : "SPRINT79's recipes",
+		"version" : "v1",
+		"author" : "DeveloperF"
+	},
+	"recipe" : {
+		"name" : "My first recipe with all the options in",
+		"description" : "This is my first recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
+		"triggers" : [
+			{ "triggerType" : "MISSED_CALL" },
+			{ "triggerType" : "TEXT_MESSAGE" }
+		],
+		"conditions" : [
+			{
+				"conditiontype" : "MessageTextContainsRule",
+				"data": { "textToCompare": "This is contained" }
+			},
+			{
+				"conditiontype" : "MessageTextStartsWithRule",
+				"data": { "textToCompare": "This is contained" }
+			},
+			{
+				"conditiontype" : "NumberContainsRule",
+				"data": { "numberToCompare": "+254" }
+			},
+			{
+				"conditiontype" : "NumberStartsWithRule",
+				"data": { "numberToCompare": "+254" }
+			},
+			{
+				"conditiontype" : "RecievedSMSWithinTime/SentSMSWithinTime/RecievedMissedCallWithinTime",
+				"data": { "numberToCheck": "${trigger.number}" ,
+					"timeValue": "23",
+					"timeUnit": "minutes/hours/days"
+			}
+			},
+			{
+				"conditiontype" : "HaveInteractedWithSenderRecently",
+				"data": { "timeValue": "23",
+					"timeUnit": "minutes/hours/days"
+			}
+			},
+			{
+				"conditiontype" : "ContactIsKnown"
+			},
+			{
+				"conditiontype" : "ContactInGroup",
+				"data": { "textToCompare": "GroupName" }
+			},
+			{
+				"conditiontype" : "TriggerFromConnection",
+				"data": { "textToCompare": "ConnectionName" }
+			}
+		],
+		"actions" : [
+			{
+				"actionType" : "AddTagAction",
+				"data": { "actionValue": "TagName" }
+			},
+			{
+				"actionType" : "AddToGroupAction",
+				"data": { "actionValue": "GroupName" }
+			},
+			{
+				"actionType" : "RemoveSenderFromGroup",
+				"data": { "actionValue": "GroupName" }
+			},
+			{
+				"actionType" : "ReplyAction",
+				"data": { "actionValue": "This is the reply message to be sent" }
+			},
+			{
+				"actionType" : "UpdateContactField",
+				"data": { "actionField" : "Name/Notes/Email/Number/CustomField",
+					"actionOperation": "Append/Replace",
+					"actionValue": "This is variable content"
 				}
-			],
-			"conditions" : [
-				{
-					"conditiontype" : "MessageTextContainsRule",
-					"data": { "textToCompare": "This is contained" },
-				},
-				{
-					"conditiontype" : "MessageTextStartsWithRule",
-					"data": { "textToCompare": "This is contained" },
-				},
-				{
-					"conditiontype" : "NumberContainsRule",
-					"data": { "numberToCompare": "+254" },
-				},
-				{
-					"conditiontype" : "NumberStartsWithRule",
-					"data": { "numberToCompare": "+254" },
-				},
-				{
-					"conditiontype" : "RecievedSMSWithinTime/SentSMSWithinTime/RecievedMissedCallWithinTime",
-					"data": { "numberToCheck": "${trigger.number}" ,
-							"timeValue": "23",
-							"timeUnit": "minutes/hours/days"
-						},
-				},
-				{
-					"conditiontype" : "HaveInteractedWithSenderRecently",
-					"data": { "timeValue": "23",
-							"timeUnit": "minutes/hours/days"
-						},
-				},
-				{
-					"conditiontype" : "ContactIsKnown",
-				},
-				{
-					"conditiontype" : "ContactInGroup",
-					"data": { "textToCompare": "GroupName" },
-				},
-				{
-					"conditiontype" : "TriggerFromConnection",
-					"data": { "textToCompare": "ConnectionName" },
-				}
-			],
-			"actions" : [
-				{
-					"actionType" : "AddTagAction",
-					"data": { "actionValue": "TagName" },
-				},
-				{
-					"actionType" : "AddToGroupAction",
-					"data": { "actionValue": "GroupName" },
-				},
-				{
-					"actionType" : "RemoveSenderFromGroup",
-					"data": { "actionValue": "GroupName" },
-				},
-				{
-					"actionType" : "ReplyAction",
-					"data": { "actionValue": "This is the reply message to be sent" },
-				},
-				{
-					"actionType" : "UpdateContactField",
-					"data": { "actionField" : "Name/Notes/Email/Number/CustomField",
-						"actionOperation": "Append/Replace",
-						"actionValue": "This is variable content"
-					}
-				}
-				
-			]
-		}
+			}
+		]
 	}
 }
