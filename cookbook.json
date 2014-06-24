@@ -13,65 +13,65 @@
 			],
 			"conditions" : [
 				{
-					"conditiontype" : "MessageTextContainsRule",
+					"type" : "MessageTextContainsRule",
 					"data": { "textToCompare": "This is contained" }
 				},
 				{
-					"conditiontype" : "MessageTextStartsWithRule",
+					"type" : "MessageTextStartsWithRule",
 					"data": { "textToCompare": "This is contained" }
 				},
 				{
-					"conditiontype" : "NumberContainsRule",
+					"type" : "NumberContainsRule",
 					"data": { "numberToCompare": "+254" }
 				},
 				{
-					"conditiontype" : "NumberStartsWithRule",
+					"type" : "NumberStartsWithRule",
 					"data": { "numberToCompare": "+254" }
 				},
 				{
-					"conditiontype" : "RecievedSMSWithinTime/SentSMSWithinTime/RecievedMissedCallWithinTime",
+					"type" : "RecievedSMSWithinTime/SentSMSWithinTime/RecievedMissedCallWithinTime",
 					"data": { "numberToCheck": "${trigger.number}" ,
 						"timeValue": "23",
 						"timeUnit": "minutes/hours/days"
 				}
 				},
 				{
-					"conditiontype" : "HaveInteractedWithSenderRecently",
+					"type" : "HaveInteractedWithSenderRecently",
 					"data": { "timeValue": "23",
 						"timeUnit": "minutes/hours/days"
 				}
 				},
 				{
-					"conditiontype" : "ContactIsKnown"
+					"type" : "ContactIsKnown"
 				},
 				{
-					"conditiontype" : "ContactInGroup",
+					"type" : "ContactInGroup",
 					"data": { "textToCompare": "GroupName" }
 				},
 				{
-					"conditiontype" : "TriggerFromConnection",
+					"type" : "TriggerFromConnection",
 					"data": { "textToCompare": "ConnectionName" }
 				}
 			],
 			"actions" : [
 				{
-					"actionType" : "AddTagAction",
+					"type" : "AddTagAction",
 					"data": { "actionValue": "TagName" }
 				},
 				{
-					"actionType" : "AddToGroupAction",
+					"type" : "AddToGroupAction",
 					"data": { "actionValue": "GroupName" }
 				},
 				{
-					"actionType" : "RemoveSenderFromGroup",
+					"type" : "RemoveSenderFromGroup",
 					"data": { "actionValue": "GroupName" }
 				},
 				{
-					"actionType" : "ReplyAction",
+					"type" : "ReplyAction",
 					"data": { "actionValue": "This is the reply message to be sent" }
 				},
 				{
-					"actionType" : "UpdateContactField",
+					"type" : "UpdateContactField",
 					"data": { "actionField" : "Name/Notes/Email/Number/CustomField",
 						"actionOperation": "Append/Replace",
 						"actionValue": "This is variable content"
