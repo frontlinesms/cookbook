@@ -8,8 +8,8 @@
 			"name" : "My first recipe with all the options in",
 			"description" : "This is my first recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
 			"triggers" : [
-				{ "triggerType" : "MISSED_CALL" },
-				{ "triggerType" : "TEXT_MESSAGE" }
+				"MISSED_CALL",
+				"TEXT_MESSAGE"
 			],
 			"conditions" : [
 				{
