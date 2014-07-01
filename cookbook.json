@@ -5,8 +5,8 @@
 	"description" : "This is a prose description of the cookbook contents",
 	"recipes": [
 		{
-			"name" : "My first recipe with all the options in",
-			"description" : "This is my first recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
+			"name" : "My second recipe with all the options in",
+			"description" : "This is my second recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
 			"triggers" : [
 				"MISSED_CALL",
 				"TEXT_MESSAGE"
@@ -14,68 +14,75 @@
 			"conditions" : [
 				{
 					"type" : "MessageTextContainsRule",
-					"data": { "textToCompare": "This is contained" }
+					"data": { "messageContainsText": "This is contained" }
 				},
 				{
 					"type" : "MessageTextStartsWithRule",
-					"data": { "textToCompare": "This is contained" }
+					"data": { "prefixText": "This is contained" }
 				},
 				{
 					"type" : "NumberContainsRule",
-					"data": { "numberToCompare": "+254" }
+					"data": { "numberContainsText": "+254" }
 				},
 				{
 					"type" : "NumberStartsWithRule",
-					"data": { "numberToCompare": "+254" }
+					"data": { "prefixText": "+254" }
 				},
 				{
-					"type" : "RecievedSMSWithinTime/SentSMSWithinTime/RecievedMissedCallWithinTime",
-					"data": { "numberToCheck": "${trigger.number}" ,
-						"timeValue": "23",
-						"timeUnit": "minutes/hours/days"
-				}
+					"type" : "MissedCallReceivedWithinPeriodRule",
+					"data": { "interactionIdentifier": "${trigger.number}" ,
+						"timeUnits": "23",
+						"timeUnitType": "days"
+					}
 				},
 				{
-					"type" : "HaveInteractedWithSenderRecently",
-					"data": { "timeValue": "23",
-						"timeUnit": "minutes/hours/days"
-				}
+					"type" : "MessageTextReceivedWithinPeriodRule",
+					"data": { "interactionIdentifier": "${trigger.number}" ,
+						"timeUnits": "23",
+						"timeUnitType": "days"
+					}
 				},
 				{
-					"type" : "ContactIsKnown"
+					"type" : "MessageTextSentWithinPeriodRule",
+					"data": { "timeUnits": "23",
+						"timeUnitType": "minutes"
+					}
 				},
 				{
-					"type" : "ContactInGroup",
-					"data": { "textToCompare": "GroupName" }
+					"type" : "ContactKnownRule"
 				},
 				{
-					"type" : "TriggerFromConnection",
-					"data": { "textToCompare": "ConnectionName" }
-				}
+					"type" : "ContactMemberOfGroupRule",
+					"data": { "groupName": "Group to which the contact belongs" }
+				},
+				{
+					"type" : "ReceivedOnConnectionRule",
+					"data": { "connectionName": "FrontlineSync connection" }
+				},
 			],
 			"actions" : [
 				{
 					"type" : "AddTagAction",
-					"data": { "actionValue": "TagName" }
+					"data": { "tagName": "TagName" }
+				},
+				{
+					"type" : "AutoreplyAction",
+					"data": { "autoreplyText": "This is the reply message to be sent" }
+				},
+				{
+					"type" : "UpdateContactFieldAction",
+					"data": { 
+						"fieldName": "notes",
+						"fieldValue": "This is variable content"
+					}
 				},
 				{
 					"type" : "AddToGroupAction",
-					"data": { "actionValue": "GroupName" }
+					"data": { "groupName": "A Group to add contacts to" }
 				},
 				{
-					"type" : "RemoveSenderFromGroup",
-					"data": { "actionValue": "GroupName" }
-				},
-				{
-					"type" : "ReplyAction",
-					"data": { "actionValue": "This is the reply message to be sent" }
-				},
-				{
-					"type" : "UpdateContactField",
-					"data": { "actionField" : "Name/Notes/Email/Number/CustomField",
-						"actionOperation": "Append/Replace",
-						"actionValue": "This is variable content"
-					}
+					"type" : "RemoveFromGroupAction",
+					"data": { "groupName": "A Group to remove contacts from" }
 				}
 			]
 		}
