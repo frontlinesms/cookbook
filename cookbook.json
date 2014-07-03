@@ -8,8 +8,22 @@
 			"name" : "My second recipe with all the options in",
 			"description" : "This is my second recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
 			"triggers" : [
-				"MISSED_CALL",
-				"TEXT_MESSAGE"
+				{
+					"type" : "MISSED_CALL"
+				},
+				{
+					"type" : "TEXT_MESSAGE"
+				},
+				{
+					"type" : "TIME",
+					"data" : {	
+						"scheduleType": "WEEKLY",
+						"repeatFrequency": 2,
+						"dayOfWeek": "Saturday",
+						"hourOfDay": 9,
+						"minuteOfHour": 30
+					}
+				}
 			],
 			"conditions" : [
 				{
