@@ -20,7 +20,8 @@
 						"scheduleType": "WEEKLY",
 						"repeatFrequency": 2,
 						"dayOfWeek": "Saturday",
-						"timeOfDay": "09:30"
+						"hourOfDay": 9,
+						"minuteOfHour": 30
 					}
 				}
 			],
