@@ -99,6 +99,16 @@
 					"type" : "RemoveFromGroupAction",
 					"data": { "groupName": "A Group to remove contacts from" }
 				}
+			],
+			"elseActions" : [
+				{
+					"type": "AddTagAction",
+					"data": { "tagName": "elseTag" }
+				},
+				{
+					"type": "AutoreplyAction",
+					"data": { "autoreplyText": "This is another reply to send" }
+				}
 			]
 		}
 	]
