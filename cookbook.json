@@ -7,6 +7,7 @@
 		{
 			"name" : "My second recipe with all the options in",
 			"description" : "This is my second recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
+			"id": 1,
 			"enabled": true,
 			"triggers" : [
 				{
@@ -73,7 +74,7 @@
 				{
 					"type" : "ReceivedOnConnectionRule",
 					"data": { "connectionName": "FrontlineSync connection" }
-				},
+				}
 			],
 			"actions" : [
 				{
@@ -98,7 +99,49 @@
 				{
 					"type" : "RemoveFromGroupAction",
 					"data": { "groupName": "A Group to remove contacts from" }
+				},
+				{
+					"type": "TriggerRecipeAction",
+					"data": {
+						"recipeToTriggerId": 2
+					}
 				}
+			]
+		},
+		{
+			"name": "Recipe Beta",
+			"enabled": true,
+			"description": "I am triggered via the other recipe",
+			"id": 2,
+			"triggers": [
+				{
+					"type": "RECIPE",
+					"data": {
+						"callingRecipeIds": [
+							1
+						]
+					}
+				}
+			],
+			"conditions": [
+
+			],
+			"actions": [
+				{
+					"type": "TriggerRecipeAction",
+					"data": {
+						"recipeToTriggerId": 5
+					}
+				},
+				{
+					"type": "AddTagAction",
+					"data": {
+						"tagName": "recipeBeta"
+					}
+				}
+			],
+			"elseActions": [
+
 			]
 		}
 	]
