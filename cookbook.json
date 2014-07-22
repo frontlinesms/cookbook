@@ -5,8 +5,9 @@
 	"description" : "This is a prose description of the cookbook contents",
 	"recipes": [
 		{
-			"name" : "My second recipe with all the options in",
+			"name" : "My master recipe with all the options in",
 			"description" : "This is my second recipe, and you should see \nthis stuff on a newline.\nThis cookbook should define all things that are currently possible in the recipe prototype as of SPRINT79.",
+			"id": 1,
 			"enabled": true,
 			"triggers" : [
 				{
@@ -73,7 +74,7 @@
 				{
 					"type" : "ReceivedOnConnectionRule",
 					"data": { "connectionName": "FrontlineSync connection" }
-				},
+				}
 			],
 			"actions" : [
 				{
@@ -98,9 +99,48 @@
 				{
 					"type" : "RemoveFromGroupAction",
 					"data": { "groupName": "A Group to remove contacts from" }
+				},
+				{
+					"type": "TriggerRecipeAction",
+					"data": {
+						"recipeToTriggerId": 2
+					}
+				}
+			]
+		},
+		{
+			"name": "Recipe Beta",
+			"enabled": true,
+			"description": "I am triggered via the main recipe",
+			"id": 2,
+			"triggers": [
+				{
+					"type": "RECIPE",
+					"data": {
+						"callingRecipeIds": [
+							1
+						]
+					}
 				}
 			],
-			"elseActions" : [
+			"conditions": [
+				{
+					"type" : "MissedCallReceivedWithinPeriodRule",
+					"data": { "interactionIdentifier": "${trigger.number}" ,
+						"timeUnits": "50",
+						"timeUnitType": "days"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "AddTagAction",
+					"data": {
+						"tagName": "recipeBeta"
+					}
+				}
+			],
+			"elseActions": [
 				{
 					"type": "AddTagAction",
 					"data": { "tagName": "elseTag" }
@@ -108,7 +148,50 @@
 				{
 					"type": "AutoreplyAction",
 					"data": { "autoreplyText": "This is another reply to send" }
+				},
+				{
+					"type": "TriggerRecipeAction",
+					"data": {
+						"recipeToTriggerId": 3
+					}
 				}
+
+			]
+		},
+		{
+			"name": "The Third Recipe",
+			"enabled": true,
+			"description": "I am triggered via the recipe beta",
+			"id": 3,
+			"triggers": [
+				{
+					"type": "RECIPE",
+					"data": {
+						"callingRecipeIds": [
+							2
+						]
+					}
+				}
+			],
+			"conditions": [
+				{
+					"type" : "MissedCallReceivedWithinPeriodRule",
+					"data": { "interactionIdentifier": "${trigger.number}" ,
+						"timeUnits": "50",
+						"timeUnitType": "days"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "AddTagAction",
+					"data": {
+						"tagName": "theThirdOne"
+					}
+				}
+			],
+			"elseActions": [
+
 			]
 		}
 	]
