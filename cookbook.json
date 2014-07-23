@@ -82,8 +82,26 @@
 					"data": { "tagName": "TagName" }
 				},
 				{
-					"type" : "AutoreplyAction",
-					"data": { "autoreplyText": "This is the reply message to be sent" }
+					"type": "SendMessageAction",
+					"data": {
+						"messageText": "Message to send",
+						"sendThrough": "routing.rules",
+						"recipients": {
+							"contacts": [
+								"+123456789",
+								"+198765432"
+							],
+							"groups": [
+								"Friends"
+							],
+							"smartGroups": [
+								"Kenyans"
+							],
+							"addresses": [
+								"${trigger_number}"
+							]
+						}
+					}
 				},
 				{
 					"type" : "UpdateContactFieldAction",
