@@ -103,7 +103,9 @@
 				{
 					"type": "TriggerRecipeAction",
 					"data": {
-						"recipeToTriggerId": 2
+						"recipeToTriggerId": 2,
+						"delayTimeUnit": "DAYS",
+						"delayLength": 2
 					}
 				}
 			]
