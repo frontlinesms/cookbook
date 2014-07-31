@@ -37,6 +37,28 @@
 					"data": { "prefixText": "This is contained" }
 				},
 				{
+					"type" : "CustomFieldEqualsRule",
+					"data": {
+						"customFieldName": "favouriteLake",
+						"valueToCompare": "tanganyika"
+					}
+				},
+				{
+					"type" : "CustomFieldBooleanRule",
+					"data": {
+						"customFieldName": "likesCats",
+						"valueToCompare": true
+					}
+				},
+				{
+					"type" : "CustomFieldIntegerRule",
+					"data": {
+						"customFieldName": "heightInCM",
+						"stringToCompare": "180",
+						"operator" : "GREATER_THAN"
+					}
+				},
+				{
 					"type" : "NumberContainsRule",
 					"data": { "numberContainsText": "+254" }
 				},
