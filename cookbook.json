@@ -188,10 +188,6 @@
 					"data": { "tagName": "elseTag" }
 				},
 				{
-					"type": "AutoreplyAction",
-					"data": { "autoreplyText": "This is another reply to send" }
-				},
-				{
 					"type": "TriggerRecipeAction",
 					"data": {
 						"recipeToTriggerId": 3
