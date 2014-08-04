@@ -106,7 +106,7 @@
 				{
 					"type": "SendMessageAction",
 					"data": {
-						"messageText": "Message to send",
+						"messageText": "This was sent from ${userData: location}",
 						"sendThrough": "routing.rules",
 						"recipients": {
 							"contacts": [
@@ -232,5 +232,8 @@
 
 			]
 		}
-	]
+	],
+	"messageBank": {
+		"location": "Ngong' Road"
+	}
 }
