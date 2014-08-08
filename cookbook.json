@@ -107,7 +107,7 @@
 					"type": "SendMessageAction",
 					"data": {
 						"messageText": "This was sent from ${userData: location}",
-						"sendThrough": "routing.rules",
+						"connectionName": "routing.rules",
 						"recipients": {
 							"contacts": [
 								"+123456789",
