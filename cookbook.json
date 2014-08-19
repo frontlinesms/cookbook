@@ -120,7 +120,10 @@
 								"Kenyans"
 							],
 							"addresses": [
-								"${trigger_number}"
+								"+312312"
+							],
+							"expressions": [
+								"${trigger.sourceNumber}"
 							]
 						}
 					}
